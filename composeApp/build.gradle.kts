@@ -84,11 +84,11 @@ kotlin {
 }
 
 android {
-    namespace = "org.ayaz.chatter"
+    namespace = "org.ayaz.spx500"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "org.ayaz.chatter"
+        applicationId = "org.ayaz.spx500"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -116,11 +116,11 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "org.ayaz.chatter.MainKt"
+        mainClass = "org.ayaz.spx500.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.ayaz.chatter"
+            packageName = "org.ayaz.spx500"
             packageVersion = "1.0.0"
         }
     }

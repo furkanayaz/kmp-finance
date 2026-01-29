@@ -8,10 +8,10 @@ plugins {
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
-group = "org.ayaz.chatter"
+group = "org.ayaz.spx500"
 version = "1.0.0"
 application {
-    mainClass.set("org.ayaz.chatter.ApplicationKt")
+    mainClass.set("org.ayaz.spx500.ApplicationKt")
     
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
