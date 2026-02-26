@@ -4,8 +4,8 @@ import redis.clients.jedis.RedisClient
 import redis.clients.jedis.params.SetParams
 
 interface ITokenSession {
-    fun addToken(uuid: String, token: String): String
-    fun removeToken(uuid: String): Long
+    fun addToken(uuid: String, token: String): Boolean
+    fun removeToken(uuid: String): Boolean
 }
 
 class TokenSession(
@@ -18,11 +18,13 @@ class TokenSession(
 
     private fun getKey(uuid: String): String = "$BASE_KEY:$uuid"
 
-    override fun addToken(uuid: String, token: String): String {
-        return redisClient.set(getKey(uuid), token, SetParams().px(EXPIRE_MILLIS))
+    override fun addToken(uuid: String, token: String): Boolean {
+        val result = redisClient.set(getKey(uuid), token, SetParams().px(EXPIRE_MILLIS))
+        return result == "OK"
     }
 
-    override fun removeToken(uuid: String): Long {
-        return redisClient.del(getKey(uuid))
+    override fun removeToken(uuid: String): Boolean {
+        val result = redisClient.del(getKey(uuid))
+        return result == 1L
     }
 }
