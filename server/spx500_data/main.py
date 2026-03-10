@@ -315,6 +315,28 @@ def import_data_from_wikipedia():
     except Exception as e:
         print(f"Occurred an error: {e}")
 
+def import_data_from_json():
+        try:
+                df = pd.read_json("SPX500.Companies.json")
+                df.fillna("")
+
+                updates = []
+
+                for index, row in df.iterrows():
+                        updates.append(
+                                UpdateOne(
+                                        { "symbol": row["symbol"] },
+                                        { "$set": { "details": row["details"], "details_tr": row["details_tr"] } }
+                                )
+                        )
+
+                get_collection().bulk_write(updates)
+
+                print("Json update completed.")
+        except Exception as e:
+                print(f"Occurred an error: {e}")
+                pass
+
 
 def add_new_fields(field_name: str = "net_worth"):
     updates = []
@@ -333,4 +355,5 @@ def add_new_fields(field_name: str = "net_worth"):
     print("Fields added.")
 
 if __name__ == "__main__":
-    add_new_fields(field_name="details_tr")
+        import_data_from_json()
+        #add_new_fields(field_name="details_tr")
