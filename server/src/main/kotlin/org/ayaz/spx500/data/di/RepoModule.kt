@@ -11,10 +11,13 @@ import org.ayaz.spx500.data.repositories.spx.SpxDataRepo
 import org.ayaz.spx500.data.sessions.token.TokenSession
 import org.ayaz.spx500.data.uow_s.auth.ILoginUow
 import org.ayaz.spx500.data.uow_s.auth.ISignUpUow
+import org.ayaz.spx500.data.uow_s.spx.IGetSpxDataUow
 import org.ayaz.spx500.data.uow_s.user.IUserGetUuidUow
 import org.ayaz.spx500.data.util.jwt.JWTUtil
 import org.ayaz.spx500.domain.di.MapperModule
 import org.ayaz.spx500.domain.mapper.login.LoginResMapper
+import org.ayaz.spx500.domain.mapper.spx.SpxDetailResMapper
+import org.ayaz.spx500.domain.mapper.spx.SpxResMapper
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 
@@ -45,6 +48,6 @@ class RepoModule {
     /** SPX REPOSITORIES */
 
     @Single([ISpxDataRepo::class])
-    fun bindSpxDataRepo(): ISpxDataRepo = SpxDataRepo()
+    fun bindSpxDataRepo(uow: IGetSpxDataUow, spxResMapper: SpxResMapper, spxDetailResMapper: SpxDetailResMapper) = SpxDataRepo(uow, spxResMapper, spxDetailResMapper)
 
 }

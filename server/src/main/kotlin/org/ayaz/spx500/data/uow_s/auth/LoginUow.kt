@@ -25,6 +25,6 @@ class LoginUow(
         val encryptedPassword = passwordEncryption.encodeWithSalt(userSaltValue, req.password)
         val canUserLogin = collection.find(Filters.and(UserEntity::email eq req.email, UserEntity::password eq encryptedPassword)).singleOrNull() ?: return Resource.Error(listOf("enter.valid.password"))
 
-        return Resource.Success(userMapper.toModel(canUserLogin))
+        return Resource.Success(userMapper(canUserLogin))
     }
 }

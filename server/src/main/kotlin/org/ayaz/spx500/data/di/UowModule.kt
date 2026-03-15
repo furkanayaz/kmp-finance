@@ -1,14 +1,13 @@
 package org.ayaz.spx500.data.di
 
 import com.mongodb.client.MongoCollection
+import org.ayaz.spx500.data.entities.spx.SpxEntity
 import org.ayaz.spx500.data.entities.user.UserEntity
 import org.ayaz.spx500.data.uow_s.auth.ILoginUow
 import org.ayaz.spx500.data.uow_s.auth.ISignUpUow
 import org.ayaz.spx500.data.uow_s.auth.LoginUow
 import org.ayaz.spx500.data.uow_s.auth.SignUpUow
-import org.ayaz.spx500.data.uow_s.spx.GetSpxDataDetailUow
 import org.ayaz.spx500.data.uow_s.spx.GetSpxDataUow
-import org.ayaz.spx500.data.uow_s.spx.IGetSpxDataDetailUow
 import org.ayaz.spx500.data.uow_s.spx.IGetSpxDataUow
 import org.ayaz.spx500.data.uow_s.user.IUserGetUuidUow
 import org.ayaz.spx500.data.uow_s.user.IUserValidationUow
@@ -52,9 +51,6 @@ class UowModule {
     /** SPX UNIT OF WORKS */
 
     @Single([IGetSpxDataUow::class])
-    fun provideGetSpxDataUow(): IGetSpxDataUow = GetSpxDataUow()
-
-    @Single([IGetSpxDataDetailUow::class])
-    fun provideGetSpxDataDetailUow(): IGetSpxDataDetailUow = GetSpxDataDetailUow()
+    fun provideGetSpxDataUow(spxCollection: MongoCollection<SpxEntity>) = GetSpxDataUow(spxCollection)
 
 }

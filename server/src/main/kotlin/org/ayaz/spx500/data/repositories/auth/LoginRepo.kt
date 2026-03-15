@@ -28,7 +28,7 @@ class LoginRepo(
                 val token = jwtUtil.createToken(jwtValues, req.email)
 
                 if (tokenSession.addToken(response.item.uuid, token)) {
-                    val responseItem = loginResMapper.toModel(response.item).copy(token = token)
+                    val responseItem = loginResMapper(response.item).copy(token = token)
                     Response.Success(item = responseItem)
                 } else {
                     Response.Error(code = 500, errorMessages = listOf("unknown.error"))

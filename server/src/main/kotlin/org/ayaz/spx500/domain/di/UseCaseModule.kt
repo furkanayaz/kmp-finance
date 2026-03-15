@@ -4,6 +4,7 @@ import org.ayaz.spx500.data.di.UowModule
 import org.ayaz.spx500.data.repositories.auth.ILoginRepo
 import org.ayaz.spx500.data.repositories.auth.ISignUpRepo
 import org.ayaz.spx500.data.repositories.auth.ILogoutRepo
+import org.ayaz.spx500.data.repositories.spx.ISpxDataRepo
 import org.ayaz.spx500.domain.use_cases.auth.LoginUseCase
 import org.ayaz.spx500.domain.use_cases.auth.SignUpUseCase
 import org.ayaz.spx500.domain.use_cases.auth.LogoutUseCase
@@ -25,9 +26,9 @@ class UseCaseModule {
     fun provideGetUuidUseCase(getUuidRepo: ILogoutRepo): LogoutUseCase = LogoutUseCase(getUuidRepo)
 
     @Single
-    fun provideGetSpxDataUseCase(): GetSpxDataUseCase = GetSpxDataUseCase()
+    fun provideGetSpxDataUseCase(repo: ISpxDataRepo): GetSpxDataUseCase = GetSpxDataUseCase(repo)
 
     @Single
-    fun provideGetSpxDataDetailUseCase(): GetSpxDataDetailUseCase = GetSpxDataDetailUseCase()
+    fun provideGetSpxDataDetailUseCase(repo: ISpxDataRepo): GetSpxDataDetailUseCase = GetSpxDataDetailUseCase(repo)
 
 }

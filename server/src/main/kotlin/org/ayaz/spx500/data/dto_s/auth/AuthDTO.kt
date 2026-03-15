@@ -2,6 +2,7 @@ package org.ayaz.spx500.data.dto_s.auth
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.Size
+import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
 import org.ayaz.spx500.presentation.util.validations.annotations.Password
 
@@ -17,7 +18,8 @@ data class LoginReqDTO(
 data class LoginResDTO(
     val name: String,
     val lastName: String,
-    val token: String
+    val token: String,
+    val createdAt: LocalDateTime
 )
 
 @Serializable

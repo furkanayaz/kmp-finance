@@ -6,10 +6,15 @@ import org.bson.types.ObjectId
 
 data class SpxEntity(
     val symbol: String,
-    @BsonProperty("company_name") val companyName: String,
+    val security: String,
     val sector: String,
-    @BsonProperty("date_added") val dateAdded: String,
+    @BsonProperty("sub_industry") val subIndustry: String,
     val headquarters: String,
+    @BsonProperty("date_added") val addedDate: String,
+    val cik: Int,
+    @BsonProperty("founded_date") val foundedDate: String,
     @BsonProperty("net_worth") val netWorth: String,
-    @BsonId @BsonProperty("_id") val id: ObjectId = ObjectId()
+    val details: String,
+    @BsonProperty("details_tr") val detailsTr: String,
+    @BsonId @BsonProperty("_id") val id: ObjectId
 )
