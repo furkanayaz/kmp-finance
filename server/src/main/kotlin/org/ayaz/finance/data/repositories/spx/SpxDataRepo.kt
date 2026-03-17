@@ -23,8 +23,16 @@ class SpxDataRepo(
         return when(val response = getSpxDataUow.getData()) {
             is Resource.Error<List<SpxEntity>> -> Response.Error(errorMessages = response.messages)
             is Resource.Success<List<SpxEntity>> -> {
-                val fromIndex = pageNo * pageSize
-                val toIndex = (pageNo + 1) * pageSize
+                val newPageNo = if (pageNo < 0) 0 else pageNo
+                val newPageSize = if (pageSize < 0) 10 else pageSize
+
+                val spxLastIndex = response.item.size
+
+                val tempFromIndex = newPageNo * newPageSize
+                val fromIndex = if (tempFromIndex > spxLastIndex) spxLastIndex else tempFromIndex
+
+                val tempToIndex = (newPageNo + 1) * newPageSize
+                val toIndex = if (tempToIndex > spxLastIndex) spxLastIndex else tempToIndex
 
                 val spxList = spxResMapper(response.item).subList(fromIndex, toIndex)
 
