@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+
 rootProject.name = "kmp-finance"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -36,3 +37,4 @@ plugins {
 include(":composeApp")
 include(":server")
 include(":shared")
+include("common")

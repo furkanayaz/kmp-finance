@@ -9,14 +9,14 @@ import org.ayaz.finance.data.entities.spx.SPXEntity
 import org.ayaz.finance.data.util.SpxCollection
 import org.ayaz.finance.domain.util.Resource
 
-interface IGetSpxDataUow {
+interface ISpxDataUow {
     fun getData(): Resource<List<SPXEntity>>
     fun getDetailData(symbol: String): Resource<SPXDetailEntity>
 }
 
-class GetSpxDataUow(
+class SpxDataUow(
     @SpxCollection private val collection: MongoCollection<SPXEntity>
-) : IGetSpxDataUow {
+) : ISpxDataUow {
     override fun getData(): Resource<List<SPXEntity>> {
         val aggregates = listOf(
             Aggregates.project(
@@ -32,10 +32,10 @@ class GetSpxDataUow(
             collection.aggregate(aggregates).toList()
         } catch (e: Exception) {
             e.printStackTrace()
-            return Resource.Error(listOf(e.message.orEmpty()))
+            return Resource.Error(messages = listOf(e.message.orEmpty()))
         }
 
-        return if (entityList.isNotEmpty()) Resource.Success(entityList) else Resource.Error(listOf("spx.data.empty"))
+        return if (entityList.isNotEmpty()) Resource.Success(entityList) else Resource.Error(messages = listOf("spx.data.empty"))
     }
 
     override fun getDetailData(symbol: String): Resource<SPXDetailEntity> {
@@ -50,9 +50,9 @@ class GetSpxDataUow(
             collection.aggregate(aggregates).firstOrNull()?.details
         } catch (e: Exception) {
             e.printStackTrace()
-            return Resource.Error(listOf(e.message.orEmpty()))
+            return Resource.Error(messages = listOf(e.message.orEmpty()))
         }
 
-        return if (entity != null) Resource.Success(entity) else Resource.Error(listOf("spx.data.detail.empty"))
+        return if (entity != null) Resource.Success(entity) else Resource.Error(messages = listOf("spx.data.detail.empty"))
     }
 }

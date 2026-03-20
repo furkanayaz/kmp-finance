@@ -4,7 +4,7 @@ import org.ayaz.finance.data.dto_s.spx.SpxDetailResDTO
 import org.ayaz.finance.data.dto_s.spx.SpxResDTO
 import org.ayaz.finance.data.entities.spx.SPXDetailEntity
 import org.ayaz.finance.data.entities.spx.SPXEntity
-import org.ayaz.finance.data.uow_s.spx.IGetSpxDataUow
+import org.ayaz.finance.data.uow_s.spx.ISpxDataUow
 import org.ayaz.finance.data.util.Response
 import org.ayaz.finance.domain.mapper.spx.SpxDetailResMapper
 import org.ayaz.finance.domain.mapper.spx.SpxResMapper
@@ -16,7 +16,7 @@ interface ISpxDataRepo {
 }
 
 class SpxDataRepo(
-    private val getSpxDataUow: IGetSpxDataUow,
+    private val getSpxDataUow: ISpxDataUow,
     private val spxResMapper: SpxResMapper,
     private val spxDetailResMapper: SpxDetailResMapper
 ): ISpxDataRepo {

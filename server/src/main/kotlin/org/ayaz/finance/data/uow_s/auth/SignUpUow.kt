@@ -2,6 +2,7 @@ package org.ayaz.finance.data.uow_s.auth
 
 import com.mongodb.MongoWriteException
 import com.mongodb.client.MongoCollection
+import io.ktor.http.HttpStatusCode
 import org.ayaz.finance.data.entities.user.UserEntity
 import org.ayaz.finance.data.dto_s.auth.SignUpReqDTO
 import org.ayaz.finance.data.util.UserCollection
@@ -21,9 +22,9 @@ class SignUpUow(
         val isUserRegistered = try {
             collection.insertOne(UserEntity(req.name, req.lastName, req.email, encryptedPassword.saltValue, encryptedPassword.encodedPassword))
         } catch (_: MongoWriteException) {
-            return Resource.Error(listOf("enter.unique.email"))
+            return Resource.Error(HttpStatusCode.InternalServerError.value, listOf("enter.unique.email"))
         }.wasAcknowledged()
 
-        return if (isUserRegistered) Resource.Success(true) else Resource.Error(listOf("account.not.create"))
+        return if (isUserRegistered) Resource.Success(true) else Resource.Error(messages = listOf("account.not.create"))
     }
 }

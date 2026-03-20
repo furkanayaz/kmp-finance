@@ -4,6 +4,7 @@ import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import org.ayaz.finance.data.di.CacheModule
 import org.ayaz.finance.data.di.DBModule
+import org.ayaz.finance.data.di.NetworkModule
 import org.ayaz.finance.data.di.RepoModule
 import org.ayaz.finance.data.di.UowModule
 import org.ayaz.finance.data.di.SessionModule
@@ -19,6 +20,7 @@ fun Application.installKoin() {
     install(Koin) {
         slf4jLogger(Level.DEBUG)
         modules(
+            NetworkModule().module,
             CacheModule().module,
             DBModule().module,
             UowModule().module,

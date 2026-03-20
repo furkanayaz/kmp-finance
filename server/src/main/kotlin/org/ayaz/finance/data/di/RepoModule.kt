@@ -6,12 +6,15 @@ import org.ayaz.finance.data.repositories.auth.LoginRepo
 import org.ayaz.finance.data.repositories.auth.SignUpRepo
 import org.ayaz.finance.data.repositories.auth.ILogoutRepo
 import org.ayaz.finance.data.repositories.auth.LogoutRepo
+import org.ayaz.finance.data.repositories.crypto.CryptoDataRepo
+import org.ayaz.finance.data.repositories.crypto.ICryptoDataRepo
 import org.ayaz.finance.data.repositories.spx.ISpxDataRepo
 import org.ayaz.finance.data.repositories.spx.SpxDataRepo
 import org.ayaz.finance.data.sessions.token.TokenSession
 import org.ayaz.finance.data.uow_s.auth.ILoginUow
 import org.ayaz.finance.data.uow_s.auth.ISignUpUow
-import org.ayaz.finance.data.uow_s.spx.IGetSpxDataUow
+import org.ayaz.finance.data.uow_s.crypto.ICryptoDataUow
+import org.ayaz.finance.data.uow_s.spx.ISpxDataUow
 import org.ayaz.finance.data.uow_s.user.IUserGetUuidUow
 import org.ayaz.finance.data.util.jwt.JWTUtil
 import org.ayaz.finance.domain.di.MapperModule
@@ -48,6 +51,9 @@ class RepoModule {
     /** SPX REPOSITORIES */
 
     @Single([ISpxDataRepo::class])
-    fun bindSpxDataRepo(uow: IGetSpxDataUow, spxResMapper: SpxResMapper, spxDetailResMapper: SpxDetailResMapper) = SpxDataRepo(uow, spxResMapper, spxDetailResMapper)
+    fun bindSpxDataRepo(uow: ISpxDataUow, spxResMapper: SpxResMapper, spxDetailResMapper: SpxDetailResMapper) = SpxDataRepo(uow, spxResMapper, spxDetailResMapper)
+
+    @Single([ICryptoDataRepo::class])
+    fun bindCryptoDataRepo(uow: ICryptoDataUow) = CryptoDataRepo(uow)
 
 }

@@ -715,14 +715,20 @@
                     <li data-group="Default" data-name="authSignupPost" class="">
                       <a href="#api-Default-authSignupPost">authSignupPost</a>
                     </li>
-                    <li data-group="Default" data-name="companiesGetSpxDataDetailSymbolGet" class="">
-                      <a href="#api-Default-companiesGetSpxDataDetailSymbolGet">companiesGetSpxDataDetailSymbolGet</a>
+                    <li data-group="Default" data-name="cryptoGetDataDetailGet" class="">
+                      <a href="#api-Default-cryptoGetDataDetailGet">cryptoGetDataDetailGet</a>
                     </li>
-                    <li data-group="Default" data-name="companiesGetSpxDataGet" class="">
-                      <a href="#api-Default-companiesGetSpxDataGet">companiesGetSpxDataGet</a>
+                    <li data-group="Default" data-name="cryptoGetDataGet" class="">
+                      <a href="#api-Default-cryptoGetDataGet">cryptoGetDataGet</a>
                     </li>
                     <li data-group="Default" data-name="openapiGet" class="">
                       <a href="#api-Default-openapiGet">openapiGet</a>
+                    </li>
+                    <li data-group="Default" data-name="spxGetDataDetailSymbolGet" class="">
+                      <a href="#api-Default-spxGetDataDetailSymbolGet">spxGetDataDetailSymbolGet</a>
+                    </li>
+                    <li data-group="Default" data-name="spxGetDataGet" class="">
+                      <a href="#api-Default-spxGetDataGet">spxGetDataGet</a>
                     </li>
           </ul>
         </nav>
@@ -1346,10 +1352,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-companiesGetSpxDataDetailSymbolGet">
-                      <article id="api-Default-companiesGetSpxDataDetailSymbolGet-0" data-group="User" data-name="companiesGetSpxDataDetailSymbolGet" data-version="0">
+                    <div id="api-Default-cryptoGetDataDetailGet">
+                      <article id="api-Default-cryptoGetDataDetailGet-0" data-group="User" data-name="cryptoGetDataDetailGet" data-version="0">
                         <div class="pull-left">
-                          <h1>companiesGetSpxDataDetailSymbolGet</h1>
+                          <h1>cryptoGetDataDetailGet</h1>
                           <p></p>
                         </div>
                         <div class="pull-right"></div>
@@ -1358,31 +1364,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/companies/get-spx-data-detail/{symbol}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/crypto/get-data-detail</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataDetailSymbolGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Default-cryptoGetDataDetailGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataDetailGet-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-cryptoGetDataDetailGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
  -H "Authorization: Bearer [[accessToken]]"\
-"//companies/get-spx-data-detail/{symbol}"</code></pre>
+"//crypto/get-data-detail"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-java">
+                          <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -1398,46 +1404,43 @@ public class DefaultApiExample {
 
 
         DefaultApi apiInstance = new DefaultApi();
-         symbol = ; //  | 
         try {
-            apiInstance.companiesGetSpxDataDetailSymbolGet(symbol);
+            apiInstance.cryptoGetDataDetailGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#companiesGetSpxDataDetailSymbolGet");
+            System.err.println("Exception when calling DefaultApi#cryptoGetDataDetailGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-android">
+                          <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
 
 public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-         symbol = ; //  | 
         try {
-            apiInstance.companiesGetSpxDataDetailSymbolGet(symbol);
+            apiInstance.cryptoGetDataDetailGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#companiesGetSpxDataDetailSymbolGet");
+            System.err.println("Exception when calling DefaultApi#cryptoGetDataDetailGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
- *symbol = ; // 
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-[apiInstance companiesGetSpxDataDetailSymbolGetWith:symbol
-              completionHandler: ^(NSError* error) {
+[apiInstance cryptoGetDataDetailGetWithCompletionHandler: 
+              ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -1445,14 +1448,12 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
 var defaultClient = FinanceAp.ApiClient.instance;
 
 
 var api = new FinanceAp.DefaultApi()
-var symbol = ; // {{}} 
-
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -1460,14 +1461,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.companiesGetSpxDataDetailSymbolGet(symbol, callback);
+api.cryptoGetDataDetailGet(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1476,22 +1477,21 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class companiesGetSpxDataDetailSymbolGetExample
+    public class cryptoGetDataDetailGetExample
     {
         public void main()
         {
 
 
             var apiInstance = new DefaultApi();
-            var symbol = new (); //  | 
 
             try
             {
-                apiInstance.companiesGetSpxDataDetailSymbolGet(symbol);
+                apiInstance.cryptoGetDataDetailGet();
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.companiesGetSpxDataDetailSymbolGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.cryptoGetDataDetailGet: " + e.Message );
             }
         }
     }
@@ -1499,40 +1499,38 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-php">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$symbol = ; //  | 
 
 try {
-    $api_instance->companiesGetSpxDataDetailSymbolGet($symbol);
+    $api_instance->cryptoGetDataDetailGet();
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->companiesGetSpxDataDetailSymbolGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->cryptoGetDataDetailGet: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $symbol = ; #  | 
 
 eval { 
-    $api_instance->companiesGetSpxDataDetailSymbolGet(symbol => $symbol);
+    $api_instance->cryptoGetDataDetailGet();
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->companiesGetSpxDataDetailSymbolGet: $@\n";
+    warn "Exception when calling DefaultApi->cryptoGetDataDetailGet: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataDetailSymbolGet-0-python">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataDetailGet-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1542,43 +1540,16 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-symbol =  #  | 
 
 try: 
-    api_instance.companies_get_spx_data_detail_symbol_get(symbol)
+    api_instance.crypto_get_data_detail_get()
 except ApiException as e:
-    print("Exception when calling DefaultApi->companiesGetSpxDataDetailSymbolGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->cryptoGetDataDetailGet: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
                           <h2>Parameters</h2>
 
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">symbol*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_companiesGetSpxDataDetailSymbolGet_symbol">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      
-                                                  </span>
-                                  
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
 
 
 
@@ -1588,10 +1559,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-companiesGetSpxDataGet">
-                      <article id="api-Default-companiesGetSpxDataGet-0" data-group="User" data-name="companiesGetSpxDataGet" data-version="0">
+                    <div id="api-Default-cryptoGetDataGet">
+                      <article id="api-Default-cryptoGetDataGet-0" data-group="User" data-name="cryptoGetDataGet" data-version="0">
                         <div class="pull-left">
-                          <h1>companiesGetSpxDataGet</h1>
+                          <h1>cryptoGetDataGet</h1>
                           <p></p>
                         </div>
                         <div class="pull-right"></div>
@@ -1600,31 +1571,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/companies/get-spx-data</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/crypto/get-data</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-companiesGetSpxDataGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-companiesGetSpxDataGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Default-cryptoGetDataGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-cryptoGetDataGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-cryptoGetDataGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-cryptoGetDataGet-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-companiesGetSpxDataGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-cryptoGetDataGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
  -H "Authorization: Bearer [[accessToken]]"\
-"//companies/get-spx-data"</code></pre>
+"//crypto/get-data"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-java">
+                          <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -1641,16 +1612,16 @@ public class DefaultApiExample {
 
         DefaultApi apiInstance = new DefaultApi();
         try {
-            apiInstance.companiesGetSpxDataGet();
+            apiInstance.cryptoGetDataGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#companiesGetSpxDataGet");
+            System.err.println("Exception when calling DefaultApi#cryptoGetDataGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-android">
+                          <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1658,24 +1629,24 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         try {
-            apiInstance.companiesGetSpxDataGet();
+            apiInstance.cryptoGetDataGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#companiesGetSpxDataGet");
+            System.err.println("Exception when calling DefaultApi#cryptoGetDataGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-objc">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-[apiInstance companiesGetSpxDataGetWithCompletionHandler: 
+[apiInstance cryptoGetDataGetWithCompletionHandler: 
               ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -1684,7 +1655,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
 var defaultClient = FinanceAp.ApiClient.instance;
 
@@ -1697,14 +1668,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.companiesGetSpxDataGet(callback);
+api.cryptoGetDataGet(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1713,7 +1684,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class companiesGetSpxDataGetExample
+    public class cryptoGetDataGetExample
     {
         public void main()
         {
@@ -1723,11 +1694,11 @@ namespace Example
 
             try
             {
-                apiInstance.companiesGetSpxDataGet();
+                apiInstance.cryptoGetDataGet();
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.companiesGetSpxDataGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.cryptoGetDataGet: " + e.Message );
             }
         }
     }
@@ -1735,7 +1706,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-php">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1743,14 +1714,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new Swagger\Client\ApiDefaultApi();
 
 try {
-    $api_instance->companiesGetSpxDataGet();
+    $api_instance->cryptoGetDataGet();
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->companiesGetSpxDataGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->cryptoGetDataGet: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
@@ -1759,14 +1730,14 @@ use WWW::SwaggerClient::DefaultApi;
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 
 eval { 
-    $api_instance->companiesGetSpxDataGet();
+    $api_instance->cryptoGetDataGet();
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->companiesGetSpxDataGet: $@\n";
+    warn "Exception when calling DefaultApi->cryptoGetDataGet: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-companiesGetSpxDataGet-0-python">
+                            <div class="tab-pane" id="examples-Default-cryptoGetDataGet-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1778,9 +1749,9 @@ from pprint import pprint
 api_instance = swagger_client.DefaultApi()
 
 try: 
-    api_instance.companies_get_spx_data_get()
+    api_instance.crypto_get_data_get()
 except ApiException as e:
-    print("Exception when calling DefaultApi->companiesGetSpxDataGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->cryptoGetDataGet: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1978,6 +1949,455 @@ try:
     api_instance.openapi_get()
 except ApiException as e:
     print("Exception when calling DefaultApi->openapiGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-spxGetDataDetailSymbolGet">
+                      <article id="api-Default-spxGetDataDetailSymbolGet-0" data-group="User" data-name="spxGetDataDetailSymbolGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>spxGetDataDetailSymbolGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/spx/get-data-detail/{symbol}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-spxGetDataDetailSymbolGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataDetailSymbolGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-spxGetDataDetailSymbolGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//spx/get-data-detail/{symbol}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+         symbol = ; //  | 
+        try {
+            apiInstance.spxGetDataDetailSymbolGet(symbol);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#spxGetDataDetailSymbolGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+         symbol = ; //  | 
+        try {
+            apiInstance.spxGetDataDetailSymbolGet(symbol);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#spxGetDataDetailSymbolGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+ *symbol = ; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance spxGetDataDetailSymbolGetWith:symbol
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
+var defaultClient = FinanceAp.ApiClient.instance;
+
+
+var api = new FinanceAp.DefaultApi()
+var symbol = ; // {{}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.spxGetDataDetailSymbolGet(symbol, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class spxGetDataDetailSymbolGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var symbol = new (); //  | 
+
+            try
+            {
+                apiInstance.spxGetDataDetailSymbolGet(symbol);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.spxGetDataDetailSymbolGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$symbol = ; //  | 
+
+try {
+    $api_instance->spxGetDataDetailSymbolGet($symbol);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->spxGetDataDetailSymbolGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $symbol = ; #  | 
+
+eval { 
+    $api_instance->spxGetDataDetailSymbolGet(symbol => $symbol);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->spxGetDataDetailSymbolGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataDetailSymbolGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+symbol =  #  | 
+
+try: 
+    api_instance.spx_get_data_detail_symbol_get(symbol)
+except ApiException as e:
+    print("Exception when calling DefaultApi->spxGetDataDetailSymbolGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">symbol*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_spxGetDataDetailSymbolGet_symbol">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-spxGetDataGet">
+                      <article id="api-Default-spxGetDataGet-0" data-group="User" data-name="spxGetDataGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>spxGetDataGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/spx/get-data</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-spxGetDataGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-spxGetDataGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-spxGetDataGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-spxGetDataGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-spxGetDataGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+"//spx/get-data"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-spxGetDataGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.spxGetDataGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#spxGetDataGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-spxGetDataGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.spxGetDataGet();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#spxGetDataGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-spxGetDataGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance spxGetDataGetWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
+var defaultClient = FinanceAp.ApiClient.instance;
+
+
+var api = new FinanceAp.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.spxGetDataGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-spxGetDataGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class spxGetDataGetExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.spxGetDataGet();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.spxGetDataGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->spxGetDataGet();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->spxGetDataGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->spxGetDataGet();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->spxGetDataGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-spxGetDataGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.spx_get_data_get()
+except ApiException as e:
+    print("Exception when calling DefaultApi->spxGetDataGet: %s\n" % e)</code></pre>
                             </div>
                           </div>
 

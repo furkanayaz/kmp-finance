@@ -11,3 +11,7 @@ annotation class UserCollection
 @Retention
 @Qualifier
 annotation class SpxCollection
+
+@Target(AnnotationTarget.FUNCTION, AnnotationTarget.VALUE_PARAMETER)
+@Retention
+annotation class CoinMarketCap
