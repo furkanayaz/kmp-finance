@@ -5,5 +5,5 @@ import org.ayaz.finance.data.repositories.auth.ILogoutRepo
 class LogoutUseCase(
     private val repo: ILogoutRepo
 ) {
-    operator fun invoke(email: String?) = repo(email)
+    operator fun invoke(email: String) = repo(email)
 }

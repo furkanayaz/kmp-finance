@@ -1,5 +1,6 @@
 package org.ayaz.finance.presentation.routes.auth
 
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.auth.authenticate
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
@@ -12,6 +13,7 @@ import org.ayaz.finance.domain.use_cases.auth.LogoutUseCase
 import org.ayaz.finance.presentation.util.CallUtil.getClaim
 import org.ayaz.finance.presentation.util.CallUtil.getJWTValues
 import org.ayaz.finance.presentation.util.CallUtil.require
+import org.ayaz.finance.presentation.util.CallUtil.sendErrorMessage
 import org.ayaz.finance.presentation.util.CallUtil.sendResponse
 import org.koin.ktor.ext.inject
 
@@ -36,9 +38,12 @@ fun Route.authRoutes() {
     authenticate {
         get(AuthEndpoints.LOG_OUT) {
             val email = call.getClaim().email
+
+            if (email.isNullOrEmpty()) call.sendErrorMessage("server.unknown.error", code = HttpStatusCode.InternalServerError)
+
             val logoutUseCase by inject<LogoutUseCase>()
 
-            val response = logoutUseCase(email)
+            val response = logoutUseCase(email!!)
             call.sendResponse(response)
         }
     }

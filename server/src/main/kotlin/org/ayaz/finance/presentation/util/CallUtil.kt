@@ -28,11 +28,11 @@ object CallUtil {
         return JWTValues(secretKey, issuer, audience)
     }
 
-    fun RoutingCall.getClaim(): SPXClaim {
+    fun RoutingCall.getClaim(): FinanceClaim {
         val email = this.principal<JWTPrincipal>()?.getClaim(KEY_EMAIL, String::class)
         val password = this.principal<JWTPrincipal>()?.getClaim(KEY_PASSWORD, String::class)
 
-        return SPXClaim(email, password)
+        return FinanceClaim(email, password)
     }
 
     suspend fun RoutingCall.getPagingInfo(): PagingInfo {
@@ -67,9 +67,10 @@ object CallUtil {
 
     suspend fun ApplicationCall.sendErrorMessage(
         @PropertyKey(resourceBundle = "messages.messages") key: String,
-        fieldName: String? = null
-    ) {
+        fieldName: String? = null,
+        code: HttpStatusCode = HttpStatusCode.BadRequest
+        ) {
         val errorMessage = if (fieldName?.isEmpty() == true) i18n(key) else String.format(i18n(key), fieldName)
-        this.sendResponse(Response.Error(code = HttpStatusCode.BadRequest.value, errorMessages = listOf(errorMessage)))
+        this.sendResponse(Response.Error(code = code.value, errorMessages = listOf(errorMessage)))
     }
 }

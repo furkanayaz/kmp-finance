@@ -31,7 +31,7 @@ class LoginRepo(
                     val responseItem = loginResMapper(response.item).copy(token = token)
                     Response.Success(item = responseItem)
                 } else {
-                    Response.Error(code = 500, errorMessages = listOf("unknown.error"))
+                    Response.Error(code = 500, errorMessages = listOf("server.unknown.error"))
                 }
             }
         }
