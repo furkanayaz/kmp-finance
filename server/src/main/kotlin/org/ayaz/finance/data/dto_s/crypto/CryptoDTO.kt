@@ -2,6 +2,7 @@ package org.ayaz.finance.data.dto_s.crypto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.ayaz.finance.data.util.serializers.CryptoDecimal
 
 @Serializable
 data class CryptoListResDTO<T: Any>(
@@ -38,9 +39,9 @@ data class CryptoMapResDTO(
 @Serializable
 data class CryptoQuotesResDTO(
     @SerialName("infinite_supply") val infiniteSupply: Boolean?,
-    @SerialName("circulating_supply") val circulatingSupply: Double?,
-    @SerialName("total_supply") val totalSupply: Double?,
-    @SerialName("max_supply") val maxSupply: Double?,
+    @SerialName("circulating_supply") val circulatingSupply: CryptoDecimal,
+    @SerialName("total_supply") val totalSupply: CryptoDecimal,
+    @SerialName("max_supply") val maxSupply: CryptoDecimal,
     @SerialName("date_added") val addedDate: String?,
     @SerialName("last_updated") val lastUpdate: String?,
     val quote: Map<String, QuoteResDTO>?
@@ -48,14 +49,14 @@ data class CryptoQuotesResDTO(
 
 @Serializable
 data class QuoteResDTO(
-    val price: Double?,
-    @SerialName("volume_24h") val volume24H: Double?,
-    @SerialName("percent_change_1h") val percentChange1H: Double?,
-    @SerialName("percent_change_24h") val percentChange24H: Double?,
-    @SerialName("percent_change_7d") val percentChange7D: Double?,
-    @SerialName("percent_change_30d") val percentChange30D: Double?,
-    @SerialName("percent_change_60d") val percentChange60D: Double?,
-    @SerialName("percent_change_90d") val percentChange90D: Double?,
-    @SerialName("market_cap") val marketCap: Double?,
+    val price: CryptoDecimal,
+    @SerialName("volume_24h") val volume24H: CryptoDecimal,
+    @SerialName("percent_change_1h") val percentChange1H: CryptoDecimal,
+    @SerialName("percent_change_24h") val percentChange24H: CryptoDecimal,
+    @SerialName("percent_change_7d") val percentChange7D: CryptoDecimal,
+    @SerialName("percent_change_30d") val percentChange30D: CryptoDecimal,
+    @SerialName("percent_change_60d") val percentChange60D: CryptoDecimal,
+    @SerialName("percent_change_90d") val percentChange90D: CryptoDecimal,
+    @SerialName("market_cap") val marketCap: CryptoDecimal,
     @SerialName("last_updated") val lastUpdate: String?
 )

@@ -44,7 +44,7 @@ fun Application.installStatusPages() {
 
                     call.respond(HttpStatusCode.BadRequest, Response.Error<Nothing>(errorMessages = errorMessages))
                 }
-                else -> call.respond(HttpStatusCode.InternalServerError, Response.Error<Nothing>(code = 500, errorMessages = listOf(call.i18n("unknown.error"))))
+                else -> call.respond(HttpStatusCode.InternalServerError, Response.Error<Nothing>(code = 500, errorMessages = listOf(call.i18n("server.unknown.error"))))
             }
         }
     }
