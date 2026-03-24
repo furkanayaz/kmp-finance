@@ -689,6 +689,34 @@
   <script>
     // Script section to load models into a JS Var
     var defs = {}
+            defs["LoginReqDTO"] = {
+  "title" : "org.ayaz.finance.data.dto_s.auth.LoginReqDTO",
+  "required" : [ "email", "password" ],
+  "properties" : {
+    "email" : { },
+    "password" : { }
+  }
+};
+            defs["LoginResDTO"] = {
+  "title" : "org.ayaz.finance.data.dto_s.auth.LoginResDTO",
+  "required" : [ "createdAt", "lastName", "name", "token" ],
+  "properties" : {
+    "name" : { },
+    "lastName" : { },
+    "token" : { },
+    "createdAt" : { }
+  }
+};
+            defs["SignUpReqDTO"] = {
+  "title" : "org.ayaz.finance.data.dto_s.auth.SignUpReqDTO",
+  "required" : [ "email", "lastName", "name", "password" ],
+  "properties" : {
+    "name" : { },
+    "lastName" : { },
+    "email" : { },
+    "password" : { }
+  }
+};
   </script>
 
   <div class="container-fluid">
@@ -705,16 +733,17 @@
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
+                  <li class="nav-header" data-group="Authentication"><a href="#api-Authentication">API Methods - Authentication</a></li>
+                    <li data-group="Authentication" data-name="authLoginPost" class="">
+                      <a href="#api-Authentication-authLoginPost">authLoginPost</a>
+                    </li>
+                    <li data-group="Authentication" data-name="authLogoutGet" class="">
+                      <a href="#api-Authentication-authLogoutGet">authLogoutGet</a>
+                    </li>
+                    <li data-group="Authentication" data-name="authSignupPost" class="">
+                      <a href="#api-Authentication-authSignupPost">authSignupPost</a>
+                    </li>
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="authLoginPost" class="">
-                      <a href="#api-Default-authLoginPost">authLoginPost</a>
-                    </li>
-                    <li data-group="Default" data-name="authLogoutGet" class="">
-                      <a href="#api-Default-authLogoutGet">authLogoutGet</a>
-                    </li>
-                    <li data-group="Default" data-name="authSignupPost" class="">
-                      <a href="#api-Default-authSignupPost">authSignupPost</a>
-                    </li>
                     <li data-group="Default" data-name="cryptoGetDataDetailGet" class="">
                       <a href="#api-Default-cryptoGetDataDetailGet">cryptoGetDataDetailGet</a>
                     </li>
@@ -749,18 +778,18 @@
           </div>
         </div>
         <div id="sections">
-                <section id="api-Default">
-                  <h1>Default</h1>
-                    <div id="api-Default-authLoginPost">
-                      <article id="api-Default-authLoginPost-0" data-group="User" data-name="authLoginPost" data-version="0">
+                <section id="api-Authentication">
+                  <h1>Authentication</h1>
+                    <div id="api-Authentication-authLoginPost">
+                      <article id="api-Authentication-authLoginPost-0" data-group="User" data-name="authLoginPost" data-version="0">
                         <div class="pull-left">
                           <h1>authLoginPost</h1>
-                          <p></p>
+                          <p>User log in to kmp-finance...</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked"></p>
+                        <p class="marked">You can log in to kmp-finance to get a token by using this endpoint.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/auth/login</span></code></pre>
@@ -768,74 +797,106 @@
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-authLoginPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-authLoginPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-authLoginPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-authLoginPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-authLoginPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-authLoginPost-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Authentication-authLoginPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authLoginPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authLoginPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Authentication-authLoginPost-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-authLoginPost-0-curl">
+                          <div class="tab-pane active" id="examples-Authentication-authLoginPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "//auth/login"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-authLoginPost-0-java">
+                          <div class="tab-pane" id="examples-Authentication-authLoginPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.AuthenticationApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
         
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
+        LoginReqDTO body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
         try {
-            apiInstance.authLoginPost();
+            LoginResDTO result = apiInstance.authLoginPost(body);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authLoginPost");
+            System.err.println("Exception when calling AuthenticationApi#authLoginPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-authLoginPost-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Authentication-authLoginPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AuthenticationApi;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
+        LoginReqDTO body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
         try {
-            apiInstance.authLoginPost();
+            LoginResDTO result = apiInstance.authLoginPost(body);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authLoginPost");
+            System.err.println("Exception when calling AuthenticationApi#authLoginPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-authLoginPost-0-groovy">
+  <div class="tab-pane" id="examples-Authentication-authLoginPost-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">LoginReqDTO *body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // Login request body must contain a valid email address and password to log in successfully.
 
-[apiInstance authLoginPostWithCompletionHandler: 
-              ^(NSError* error) {
+AuthenticationApi *apiInstance = [[AuthenticationApi alloc] init];
+
+// User log in to kmp-finance...
+[apiInstance authLoginPostWith:body
+              completionHandler: ^(LoginResDTO output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -843,25 +904,34 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-javascript">
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
 
-var api = new FinanceAp.DefaultApi()
+var api = new FinanceAp.AuthenticationApi()
+var body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // {{LoginReqDTO}} Login request body must contain a valid email address and password to log in successfully.
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.authLoginPost(callback);
+api.authLoginPost(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-authLoginPost-0-angular">
+                            <!--<div class="tab-pane" id="examples-Authentication-authLoginPost-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-csharp">
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -875,15 +945,18 @@ namespace Example
         public void main()
         {
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new AuthenticationApi();
+            var body = new LoginReqDTO(); // LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
 
             try
             {
-                apiInstance.authLoginPost();
+                // User log in to kmp-finance...
+                LoginResDTO result = apiInstance.authLoginPost(body);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.authLoginPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.authLoginPost: " + e.Message );
             }
         }
     }
@@ -891,36 +964,47 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-php">
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiAuthenticationApi();
+$body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
 
 try {
-    $api_instance->authLoginPost();
+    $result = $api_instance->authLoginPost($body);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->authLoginPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->authLoginPost: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-perl">
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::AuthenticationApi;
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::AuthenticationApi->new();
+my $body = WWW::SwaggerClient::Object::LoginReqDTO->new(); # LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
 
 eval { 
-    $api_instance->authLoginPost();
+    my $result = $api_instance->authLoginPost(body => $body);
+    print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->authLoginPost: $@\n";
+    warn "Exception when calling AuthenticationApi->authLoginPost: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLoginPost-0-python">
+                            <div class="tab-pane" id="examples-Authentication-authLoginPost-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -928,12 +1012,22 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.AuthenticationApi()
+body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+} # LoginReqDTO | Login request body must contain a valid email address and password to log in successfully.
 
 try: 
-    api_instance.auth_login_post()
+    # User log in to kmp-finance...
+    api_response = api_instance.auth_login_post(body)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->authLoginPost: %s\n" % e)</code></pre>
+    print("Exception when calling AuthenticationApi->authLoginPost: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -941,23 +1035,181 @@ except ApiException as e:
 
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Login request body must contain a valid email address and password to log in successfully.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/LoginReqDTO"
+      },
+      "examples" : {
+        "login_success" : {
+          "summary" : "Success Example",
+          "description" : "As you can see, the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+          "value" : {
+            "email" : "furkanayaz.dev@gmail.com",
+            "password" : "FurkanAyaz321$"
+          }
+        },
+        "login_failure" : {
+          "summary" : "Failure Example",
+          "description" : "As you can see, the email address does not match a valid email regex pattern because it is missing the ‘@’ character. The password is not valid because it does not contain any uppercase letters and one special character.",
+          "value" : {
+            "email" : "furkanayaz.devgmail.com",
+            "password" : "furkan123"
+          }
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_authLoginPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_authLoginPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 200 - User can receive a token from kmp-finance... </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-authLoginPost-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-authLoginPost-200-schema">
+                                  <div id='responses-authLoginPost-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "User can receive a token from kmp-finance...",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/LoginResDTO"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-authLoginPost-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-authLoginPost-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-authLoginPost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - The user cannot obtain a token from kmp-finance due to an invalid email address or password. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-authLoginPost-400-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-authLoginPost-400-schema">
+                                  <div id='responses-authLoginPost-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "The user cannot obtain a token from kmp-finance due to an invalid email address or password.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/LoginResDTO"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-authLoginPost-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-authLoginPost-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-authLoginPost-400-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-authLogoutGet">
-                      <article id="api-Default-authLogoutGet-0" data-group="User" data-name="authLogoutGet" data-version="0">
+                    <div id="api-Authentication-authLogoutGet">
+                      <article id="api-Authentication-authLogoutGet-0" data-group="User" data-name="authLogoutGet" data-version="0">
                         <div class="pull-left">
                           <h1>authLogoutGet</h1>
-                          <p></p>
+                          <p>Log out to expire your token...</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked"></p>
+                        <p class="marked">Logs the user out of their account.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/auth/logout</span></code></pre>
@@ -965,76 +1217,77 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-authLogoutGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-authLogoutGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-authLogoutGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-authLogoutGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Authentication-authLogoutGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authLogoutGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authLogoutGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Authentication-authLogoutGet-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-authLogoutGet-0-curl">
+                          <div class="tab-pane active" id="examples-Authentication-authLogoutGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
  -H "Authorization: Bearer [[accessToken]]"\
 "//auth/logout"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-authLogoutGet-0-java">
+                          <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.AuthenticationApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
         try {
             apiInstance.authLogoutGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authLogoutGet");
+            System.err.println("Exception when calling AuthenticationApi#authLogoutGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-authLogoutGet-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AuthenticationApi;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
         try {
             apiInstance.authLogoutGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authLogoutGet");
+            System.err.println("Exception when calling AuthenticationApi#authLogoutGet");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-authLogoutGet-0-groovy">
+  <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-objc">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+AuthenticationApi *apiInstance = [[AuthenticationApi alloc] init];
 
+// Log out to expire your token...
 [apiInstance authLogoutGetWithCompletionHandler: 
               ^(NSError* error) {
                             if (error) {
@@ -1044,12 +1297,12 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-javascript">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
 var defaultClient = FinanceAp.ApiClient.instance;
 
 
-var api = new FinanceAp.DefaultApi()
+var api = new FinanceAp.AuthenticationApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -1061,10 +1314,10 @@ api.authLogoutGet(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-authLogoutGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Authentication-authLogoutGet-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-csharp">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1079,15 +1332,16 @@ namespace Example
         {
 
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new AuthenticationApi();
 
             try
             {
+                // Log out to expire your token...
                 apiInstance.authLogoutGet();
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.authLogoutGet: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.authLogoutGet: " + e.Message );
             }
         }
     }
@@ -1095,38 +1349,38 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-php">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiAuthenticationApi();
 
 try {
     $api_instance->authLogoutGet();
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->authLogoutGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->authLogoutGet: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-perl">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::AuthenticationApi;
 
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::AuthenticationApi->new();
 
 eval { 
     $api_instance->authLogoutGet();
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->authLogoutGet: $@\n";
+    warn "Exception when calling AuthenticationApi->authLogoutGet: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authLogoutGet-0-python">
+                            <div class="tab-pane" id="examples-Authentication-authLogoutGet-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1135,12 +1389,13 @@ from pprint import pprint
 
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.AuthenticationApi()
 
 try: 
+    # Log out to expire your token...
     api_instance.auth_logout_get()
 except ApiException as e:
-    print("Exception when calling DefaultApi->authLogoutGet: %s\n" % e)</code></pre>
+    print("Exception when calling AuthenticationApi->authLogoutGet: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1152,19 +1407,27 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 200 - User logged out of their account. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-authSignupPost">
-                      <article id="api-Default-authSignupPost-0" data-group="User" data-name="authSignupPost" data-version="0">
+                    <div id="api-Authentication-authSignupPost">
+                      <article id="api-Authentication-authSignupPost-0" data-group="User" data-name="authSignupPost" data-version="0">
                         <div class="pull-left">
                           <h1>authSignupPost</h1>
-                          <p></p>
+                          <p>User sign up to kmp-finance...</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked"></p>
+                        <p class="marked">You can sign up to kmp-finance to get an account by using this endpoint.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/auth/signup</span></code></pre>
@@ -1172,74 +1435,107 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-authSignupPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-authSignupPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-authSignupPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-authSignupPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-authSignupPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-authSignupPost-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Authentication-authSignupPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authSignupPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Authentication-authSignupPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Authentication-authSignupPost-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-authSignupPost-0-curl">
+                          <div class="tab-pane active" id="examples-Authentication-authSignupPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "//auth/signup"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-authSignupPost-0-java">
+                          <div class="tab-pane" id="examples-Authentication-authSignupPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.AuthenticationApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
         
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
+        SignUpReqDTO body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
         try {
-            apiInstance.authSignupPost();
+            apiInstance.authSignupPost(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authSignupPost");
+            System.err.println("Exception when calling AuthenticationApi#authSignupPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-authSignupPost-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Authentication-authSignupPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AuthenticationApi;
 
-public class DefaultApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        AuthenticationApi apiInstance = new AuthenticationApi();
+        SignUpReqDTO body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
         try {
-            apiInstance.authSignupPost();
+            apiInstance.authSignupPost(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#authSignupPost");
+            System.err.println("Exception when calling AuthenticationApi#authSignupPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-authSignupPost-0-groovy">
+  <div class="tab-pane" id="examples-Authentication-authSignupPost-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">SignUpReqDTO *body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
 
-[apiInstance authSignupPostWithCompletionHandler: 
-              ^(NSError* error) {
+AuthenticationApi *apiInstance = [[AuthenticationApi alloc] init];
+
+// User sign up to kmp-finance...
+[apiInstance authSignupPostWith:body
+              completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -1247,10 +1543,21 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-javascript">
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FinanceAp = require('finance_ap');
 
-var api = new FinanceAp.DefaultApi()
+var api = new FinanceAp.AuthenticationApi()
+var body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // {{SignUpReqDTO}} Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -1258,14 +1565,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.authSignupPost(callback);
+api.authSignupPost(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-authSignupPost-0-angular">
+                            <!--<div class="tab-pane" id="examples-Authentication-authSignupPost-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-csharp">
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1279,15 +1586,17 @@ namespace Example
         public void main()
         {
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new AuthenticationApi();
+            var body = new SignUpReqDTO(); // SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
 
             try
             {
-                apiInstance.authSignupPost();
+                // User sign up to kmp-finance...
+                apiInstance.authSignupPost(body);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.authSignupPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.authSignupPost: " + e.Message );
             }
         }
     }
@@ -1295,36 +1604,47 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-php">
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiAuthenticationApi();
+$body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+}; // SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
 
 try {
-    $api_instance->authSignupPost();
+    $api_instance->authSignupPost($body);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->authSignupPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->authSignupPost: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-perl">
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::AuthenticationApi;
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::AuthenticationApi->new();
+my $body = WWW::SwaggerClient::Object::SignUpReqDTO->new(); # SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
 
 eval { 
-    $api_instance->authSignupPost();
+    $api_instance->authSignupPost(body => $body);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->authSignupPost: $@\n";
+    warn "Exception when calling AuthenticationApi->authSignupPost: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-authSignupPost-0-python">
+                            <div class="tab-pane" id="examples-Authentication-authSignupPost-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1332,12 +1652,23 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.AuthenticationApi()
+body = {
+  "summary" : "Success Example",
+  "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+  "value" : {
+    "name" : "Fa",
+    "lastName" : "Az",
+    "email" : "furkanayaz.dev@gmail.com",
+    "password" : "FurkanAyaz321$"
+  }
+} # SignUpReqDTO | Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.
 
 try: 
-    api_instance.auth_signup_post()
+    # User sign up to kmp-finance...
+    api_instance.auth_signup_post(body)
 except ApiException as e:
-    print("Exception when calling DefaultApi->authSignupPost: %s\n" % e)</code></pre>
+    print("Exception when calling AuthenticationApi->authSignupPost: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1345,13 +1676,130 @@ except ApiException as e:
 
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Sign-up request body must include a name, lastName, a valid email address, and a password to complete registration.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/SignUpReqDTO"
+      },
+      "examples" : {
+        "sign_up_success" : {
+          "summary" : "Success Example",
+          "description" : "As you can see, name and lastName must be min 2 characters long and the email address matches a valid email regex pattern. The password must be 8–20 characters long and contain at least one lowercase letter, one uppercase letter, one special character, and one number.",
+          "value" : {
+            "name" : "Fa",
+            "lastName" : "Az",
+            "email" : "furkanayaz.dev@gmail.com",
+            "password" : "FurkanAyaz321$"
+          }
+        },
+        "sign_up_failure" : {
+          "summary" : "Failure Example",
+          "description" : "As you can see, name and lastName not match 2 characters long and the email address does not match a valid email regex pattern because it is missing the ‘@’ character. The password is not valid because it does not contain any uppercase letters and one special character.",
+          "value" : {
+            "name" : "F",
+            "lastName" : "A",
+            "email" : "furkanayaz.devgmail.com",
+            "password" : "furkan123"
+          }
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_authSignupPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_authSignupPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 200 - User creates an account successfully... </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-authSignupPost-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-authSignupPost-200-schema">
+                                  <div id='responses-authSignupPost-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "User creates an account successfully...",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "x-content-type" : "application/json"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-authSignupPost-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-authSignupPost-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-authSignupPost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
+                  </section>
+                <section id="api-Default">
+                  <h1>Default</h1>
                     <div id="api-Default-cryptoGetDataDetailGet">
                       <article id="api-Default-cryptoGetDataDetailGet-0" data-group="User" data-name="cryptoGetDataDetailGet" data-version="0">
                         <div class="pull-left">

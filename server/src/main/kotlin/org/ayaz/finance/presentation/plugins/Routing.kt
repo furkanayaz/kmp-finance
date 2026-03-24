@@ -4,7 +4,7 @@ import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
 import org.ayaz.finance.presentation.routes.auth.authRoutes
 import org.ayaz.finance.presentation.routes.crypto.cryptoRoutes
-import org.ayaz.finance.presentation.routes.spx.spxRoutes
+import org.ayaz.finance.presentation.routes.spx500.spxRoutes
 
 fun Application.installRouting() {
     routing {

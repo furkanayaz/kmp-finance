@@ -1,10 +1,12 @@
-package org.ayaz.finance.presentation.routes.spx
+package org.ayaz.finance.presentation.routes.spx500
 
 import io.ktor.server.auth.authenticate
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 import org.ayaz.finance.domain.use_cases.spx.GetSpxDataDetailUseCase
 import org.ayaz.finance.domain.use_cases.spx.GetSpxDataUseCase
+import org.ayaz.finance.presentation.docs.spx500.setGetDataDetailDoc
+import org.ayaz.finance.presentation.docs.spx500.setGetDataDoc
 import org.ayaz.finance.presentation.util.CallUtil.getPagingInfo
 import org.ayaz.finance.presentation.util.CallUtil.sendErrorMessage
 import org.ayaz.finance.presentation.util.CallUtil.sendResponse
@@ -17,7 +19,7 @@ fun Route.spxRoutes() {
             val (pageNo, pageSize) = call.getPagingInfo()
 
             call.sendResponse(getSpxDataUseCase(pageNo, pageSize))
-        }
+        }.setGetDataDoc()
 
         get(SpxEndpoints.GET_DATA_DETAIL) {
             val symbol = call.parameters["symbol"]
@@ -25,6 +27,6 @@ fun Route.spxRoutes() {
 
             val getSpxDataDetailUseCase by inject<GetSpxDataDetailUseCase>()
             call.sendResponse(getSpxDataDetailUseCase(symbol!!))
-        }
+        }.setGetDataDetailDoc()
     }
 }

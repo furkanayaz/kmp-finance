@@ -1,4 +1,4 @@
-package org.ayaz.finance.presentation.routes.spx
+package org.ayaz.finance.presentation.routes.spx500
 
 object SpxEndpoints {
     private const val BASE_URL = "spx"
