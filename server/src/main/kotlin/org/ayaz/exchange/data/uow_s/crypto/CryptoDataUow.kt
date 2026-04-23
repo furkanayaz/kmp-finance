@@ -9,36 +9,58 @@ import org.ayaz.exchange.data.dto_s.crypto.CryptoListResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoQuotesResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoMapResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoFilterResDTO
+import org.ayaz.exchange.data.dto_s.crypto.CryptoLogoResDTO
 import org.ayaz.exchange.domain.base.Resource
 
 interface ICryptoDataUow {
-    suspend fun getData(limit: Int, start: Int): Resource<List<CryptoMapResDTO>>
-    suspend fun getDetailData(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>>
+    suspend fun getMap(limit: Int, start: Int): Resource<List<CryptoMapResDTO>>
+    suspend fun getInfo(id: Int): Resource<Map<String, CryptoLogoResDTO>>
+    suspend fun getQuotesLatest(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>>
 }
 
 class CryptoDataUow(
     private val client: HttpClient
 ) : ICryptoDataUow {
-    override suspend fun getData(limit: Int, start: Int): Resource<List<CryptoMapResDTO>> {
-        return try {
-            val response = client.get("/v1/cryptocurrency/map") {
-                url.parameters.appendAll(mapOf("limit" to limit.toString(), "start" to (start * 2 + 1).toString()))
+    private companion object {
+        const val KEY_ID = "id"
+        const val KEY_LIMIT = "limit"
+        const val KEY_START = "start"
+        const val KEY_CONVERT = "convert"
+    }
+
+    override suspend fun getMap(limit: Int, start: Int): Resource<List<CryptoMapResDTO>> {
+        try {
+            val response = client.get(CryptoDataEndpoints.MAP_ENDPOINT) {
+                url.parameters.appendAll(mapOf(KEY_LIMIT to limit.toString(), KEY_START to (start * 2 + 1).toString()))
             }.body<CryptoListResDTO<CryptoMapResDTO>>()
 
-            if (response.isSuccess()) Resource.Success(response.data) else Resource.Error(response.status.errorCode, listOf(response.status.getErrorMessage()))
+            return response.getResource()
         } catch (e: Exception) {
             e.printStackTrace()
-            Resource.Error(HttpStatusCode.InternalServerError.value, listOf(e.message.orEmpty()))
+            return Resource.Error(HttpStatusCode.InternalServerError.value, listOf(e.message.orEmpty()))
         }
     }
 
-    override suspend fun getDetailData(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>> {
-        return try {
-            val response = client.get("/v1/cryptocurrency/quotes/latest") {
-                url.parameters.appendAll(mapOf("id" to id.toString(), "convert" to convert))
+    override suspend fun getInfo(id: Int): Resource<Map<String, CryptoLogoResDTO>> {
+        try {
+            val response = client.get(CryptoDataEndpoints.INFO_ENDPOINT) {
+                url.parameters.append(KEY_ID, id.toString())
+            }.body<CryptoFilterResDTO<CryptoLogoResDTO>>()
+
+            return response.getResource()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return Resource.Error(HttpStatusCode.InternalServerError.value, listOf(e.message.orEmpty()))
+        }
+    }
+
+    override suspend fun getQuotesLatest(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>> {
+        try {
+            val response = client.get(CryptoDataEndpoints.QUOTES_LATEST_ENDPOINT) {
+                url.parameters.appendAll(mapOf(KEY_ID to id.toString(), KEY_CONVERT to convert))
             }.body<CryptoFilterResDTO<CryptoQuotesResDTO>>()
 
-            if (response.isSuccess()) Resource.Success(response.data) else Resource.Error(response.status.errorCode, listOf(response.status.getErrorMessage()))
+            return response.getResource()
         } catch (e: Exception) {
             e.printStackTrace()
             return Resource.Error(HttpStatusCode.InternalServerError.value, listOf(e.message.orEmpty()))

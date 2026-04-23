@@ -23,7 +23,6 @@ class SPXDetailCodec: Codec<SPXDetailEntity> {
         writer.writeString("founded_date", value.foundedDate)
         writer.writeString("net_worth", value.netWorth)
         writer.writeString("details", value.details)
-        writer.writeString("details_tr", value.detailsTr)
 
         writer.writeEndDocument()
     }
@@ -54,13 +53,12 @@ class SPXDetailCodec: Codec<SPXDetailEntity> {
                 "founded_date" -> foundedDate = reader.readString()
                 "net_worth" -> netWorth = reader.readString()
                 "details" -> details = reader.readString()
-                "details_tr" -> detailsTr = reader.readString()
                 else -> reader.skipValue()
             }
         }
 
         reader.readEndDocument()
 
-        return SPXDetailEntity(subIndustry, headquarters, addedDate, cik, foundedDate, netWorth, details, detailsTr)
+        return SPXDetailEntity(subIndustry, headquarters, addedDate, cik, foundedDate, netWorth, details)
     }
 }

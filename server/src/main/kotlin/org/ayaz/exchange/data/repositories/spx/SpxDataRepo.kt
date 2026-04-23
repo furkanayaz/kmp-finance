@@ -47,9 +47,7 @@ class SpxDataRepo(
     override fun getDetailData(symbol: String): Response<SpxDetailResDTO> {
         return when(val response = getSpxDataUow.getDetailData(symbol)) {
             is Resource.Error<SPXDetailEntity> -> Response.Error(errorMessages = response.messages)
-            is Resource.Success<SPXDetailEntity> -> {
-                Response.Success(item = spxDetailResMapper(response.item))
-            }
+            is Resource.Success<SPXDetailEntity> -> Response.Success(item = spxDetailResMapper(response.item))
         }
     }
 

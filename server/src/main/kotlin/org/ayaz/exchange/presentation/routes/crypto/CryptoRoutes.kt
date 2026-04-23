@@ -3,8 +3,8 @@ package org.ayaz.exchange.presentation.routes.crypto
 import io.ktor.server.auth.authenticate
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
-import org.ayaz.exchange.domain.use_cases.crypto.CryptoDataDetailUseCase
-import org.ayaz.exchange.domain.use_cases.crypto.CryptoDataUseCase
+import org.ayaz.exchange.domain.use_cases.crypto.CryptoQuotesLatestUseCase
+import org.ayaz.exchange.domain.use_cases.crypto.CryptoMapUseCase
 import org.ayaz.exchange.presentation.docs.crypto.setGetDataDetailDoc
 import org.ayaz.exchange.presentation.docs.crypto.setGetDataDoc
 import org.ayaz.exchange.presentation.util.CallUtil.sendErrorMessage
@@ -16,7 +16,7 @@ fun Route.cryptoRoutes() {
     authenticate {
         get(CryptoEndpoints.GET_DATA) {
             val (pageNo, pageSize) = call.getPagingInfo()
-            val crpytoDataUseCase by inject<CryptoDataUseCase>()
+            val crpytoDataUseCase by inject<CryptoMapUseCase>()
 
             call.sendResponse(crpytoDataUseCase(pageSize, pageNo))
         }.setGetDataDoc()
@@ -27,7 +27,7 @@ fun Route.cryptoRoutes() {
 
             if (id == null) call.sendErrorMessage("fields.required", "id")
 
-            val crpytoDataDetailUseCase by inject<CryptoDataDetailUseCase>()
+            val crpytoDataDetailUseCase by inject<CryptoQuotesLatestUseCase>()
             call.sendResponse(crpytoDataDetailUseCase(id!!, convert))
         }.setGetDataDetailDoc()
     }

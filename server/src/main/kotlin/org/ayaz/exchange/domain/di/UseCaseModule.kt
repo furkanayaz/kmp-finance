@@ -9,8 +9,8 @@ import org.ayaz.exchange.data.repositories.spx.ISpxDataRepo
 import org.ayaz.exchange.domain.use_cases.auth.LoginUseCase
 import org.ayaz.exchange.domain.use_cases.auth.SignUpUseCase
 import org.ayaz.exchange.domain.use_cases.auth.LogoutUseCase
-import org.ayaz.exchange.domain.use_cases.crypto.CryptoDataDetailUseCase
-import org.ayaz.exchange.domain.use_cases.crypto.CryptoDataUseCase
+import org.ayaz.exchange.domain.use_cases.crypto.CryptoQuotesLatestUseCase
+import org.ayaz.exchange.domain.use_cases.crypto.CryptoMapUseCase
 import org.ayaz.exchange.domain.use_cases.spx.GetSpxDataDetailUseCase
 import org.ayaz.exchange.domain.use_cases.spx.GetSpxDataUseCase
 import org.koin.core.annotation.Module
@@ -35,9 +35,9 @@ class UseCaseModule {
     fun provideSpxDataDetailUseCase(repo: ISpxDataRepo): GetSpxDataDetailUseCase = GetSpxDataDetailUseCase(repo)
 
     @Single
-    fun provideCryptoDataUseCase(repo: ICryptoDataRepo): CryptoDataUseCase = CryptoDataUseCase(repo)
+    fun provideCryptoMapUseCase(repo: ICryptoDataRepo): CryptoMapUseCase = CryptoMapUseCase(repo)
 
     @Single
-    fun provideCryptoDataDetailUseCase(repo: ICryptoDataRepo): CryptoDataDetailUseCase = CryptoDataDetailUseCase(repo)
+    fun provideCryptoQuotesLatestUseCase(repo: ICryptoDataRepo): CryptoQuotesLatestUseCase = CryptoQuotesLatestUseCase(repo)
 
 }

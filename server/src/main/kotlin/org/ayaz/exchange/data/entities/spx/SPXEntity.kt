@@ -19,6 +19,5 @@ data class SPXDetailEntity(
     val cik: Int? = null,
     @BsonProperty("founded_date") val foundedDate: String? = null,
     @BsonProperty("net_worth") val netWorth: String? = null,
-    val details: String? = null,
-    @BsonProperty("details_tr") val detailsTr: String? = null
+    val details: String? = null
 )

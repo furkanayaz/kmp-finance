@@ -404,8 +404,18 @@ def create_nested_relations():
     except Exception as e :
         print("Occurred an error:", e)
 
+def remove_column(columnName: str):
+    try:
+        get_collection().update_many(
+            {"details.details_tr": {"$exists": True}},
+            {"$unset": {columnName: ""}}
+        )
+    except Exception as e:
+        print("Occurred an error:", e)
+
 if __name__ == "__main__":
-    create_nested_relations()
+    #create_nested_relations()
+    remove_column("details.details_tr")
     # rename_fields(asdasda = "")
     # import_data_from_json()
     # add_new_fields(field_name="details_tr")

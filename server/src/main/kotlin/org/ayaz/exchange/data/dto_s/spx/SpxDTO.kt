@@ -18,6 +18,5 @@ data class SpxDetailResDTO(
     val cik: Int?,
     val foundedDate: String?,
     val netWorth: String?,
-    val details: String?,
-    val detailsTr: String?
+    val details: String?
 )

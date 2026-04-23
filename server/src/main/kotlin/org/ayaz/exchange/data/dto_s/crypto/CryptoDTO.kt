@@ -1,30 +1,42 @@
 package org.ayaz.exchange.data.dto_s.crypto
 
+import io.ktor.http.HttpStatusCode
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.ayaz.exchange.data.util.serializers.CryptoDecimal
+import org.ayaz.exchange.domain.base.Resource
+
+open class BaseCryptoResDTO<E: Any> {
+    open val data: E? = null
+    open val status: CryptoResStatusDTO? = null
+
+    fun getResource(): Resource<E> {
+        return when {
+            status?.isSuccess() == false -> Resource.Error(HttpStatusCode.InternalServerError.value, listOf(status?.getErrorMessage().orEmpty()))
+            data == null -> Resource.Error(HttpStatusCode.InternalServerError.value, listOf(status?.getErrorMessage().orEmpty()))
+            else -> Resource.Success(data!!)
+        }
+    }
+}
 
 @Serializable
 data class CryptoListResDTO<T : Any>(
-    val data: List<T>,
-    val status: CryptoResStatusDTO
-) {
-    fun isSuccess() = status.errorCode == 0
-}
+    override val data: List<T>,
+    override val status: CryptoResStatusDTO
+): BaseCryptoResDTO<List<T>>()
 
 @Serializable
 data class CryptoFilterResDTO<T : Any>(
-    val data: Map<String, T>,
-    val status: CryptoResStatusDTO
-) {
-    fun isSuccess() = status.errorCode == 0
-}
+    override val data: Map<String, T>,
+    override val status: CryptoResStatusDTO
+): BaseCryptoResDTO<Map<String, T>>()
 
 @Serializable
 data class CryptoResStatusDTO(
     @SerialName("error_code") val errorCode: Int,
     @SerialName("error_message") private val errorMessage: String? = null
 ) {
+    fun isSuccess() = errorCode == 0
     fun getErrorMessage(): String = errorMessage ?: "Crypto - empty error message."
 }
 
@@ -35,6 +47,11 @@ data class CryptoMapResDTO(
     val symbol: String? = null,
     val slug: String? = null,
     var logoLink: String? = null
+)
+
+@Serializable
+data class CryptoLogoResDTO(
+    val logo: String?
 )
 
 @Serializable

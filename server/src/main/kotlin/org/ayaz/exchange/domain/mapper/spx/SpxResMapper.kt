@@ -22,8 +22,7 @@ class SpxDetailResMapper : Mapper<SPXDetailEntity, SpxDetailResDTO> {
             dto.cik,
             dto.foundedDate,
             dto.netWorth,
-            dto.details,
-            dto.detailsTr
+            dto.details
         )
     }
 }
