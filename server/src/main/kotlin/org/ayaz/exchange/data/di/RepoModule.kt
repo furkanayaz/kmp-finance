@@ -57,7 +57,7 @@ class RepoModule {
     /** CRYPTO REPOSITORIES */
 
     @Single([ICryptoDataRepo::class])
-    fun bindCryptoDataRepo(uow: ICryptoDataUow, logoRepo: IExchangeLogoRepo) = CryptoDataRepo(uow, logoRepo)
+    fun bindCryptoDataRepo(uow: ICryptoDataUow) = CryptoDataRepo(uow)
 
     /** LOGO REPOSITORY */
 

@@ -10,6 +10,8 @@ open class BaseCryptoResDTO<E: Any> {
     open val data: E? = null
     open val status: CryptoResStatusDTO? = null
 
+    fun isValid(): Boolean = status?.isSuccess() == true && data != null
+
     fun getResource(): Resource<E> {
         return when {
             status?.isSuccess() == false -> Resource.Error(HttpStatusCode.InternalServerError.value, listOf(status?.getErrorMessage().orEmpty()))

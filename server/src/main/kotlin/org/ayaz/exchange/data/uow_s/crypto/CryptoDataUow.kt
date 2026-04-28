@@ -10,19 +10,21 @@ import org.ayaz.exchange.data.dto_s.crypto.CryptoQuotesResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoMapResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoFilterResDTO
 import org.ayaz.exchange.data.dto_s.crypto.CryptoLogoResDTO
+import org.ayaz.exchange.data.repositories.logo.IExchangeLogoRepo
 import org.ayaz.exchange.domain.base.Resource
 
 interface ICryptoDataUow {
     suspend fun getMap(limit: Int, start: Int): Resource<List<CryptoMapResDTO>>
-    suspend fun getInfo(id: Int): Resource<Map<String, CryptoLogoResDTO>>
+    suspend fun getInfo(symbols: List<String>): Map<String, String?>
     suspend fun getQuotesLatest(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>>
 }
 
 class CryptoDataUow(
-    private val client: HttpClient
+    private val client: HttpClient,
+    private val logoRepo: IExchangeLogoRepo
 ) : ICryptoDataUow {
     private companion object {
-        const val KEY_ID = "id"
+        const val KEY_SYMBOL = "symbol"
         const val KEY_LIMIT = "limit"
         const val KEY_START = "start"
         const val KEY_CONVERT = "convert"
@@ -41,23 +43,23 @@ class CryptoDataUow(
         }
     }
 
-    override suspend fun getInfo(id: Int): Resource<Map<String, CryptoLogoResDTO>> {
-        try {
+    override suspend fun getInfo(symbols: List<String>): Map<String, String?> {
+        return try {
             val response = client.get(CryptoDataEndpoints.INFO_ENDPOINT) {
-                url.parameters.append(KEY_ID, id.toString())
+                url.parameters.append(KEY_SYMBOL, symbols.joinToString(","))
             }.body<CryptoFilterResDTO<CryptoLogoResDTO>>()
 
-            return response.getResource()
+            if (response.isValid()) response.data.mapValues { it.value.logo } else logoRepo.getCryptoLogos(symbols.toList())
         } catch (e: Exception) {
             e.printStackTrace()
-            return Resource.Error(HttpStatusCode.InternalServerError.value, listOf(e.message.orEmpty()))
+            logoRepo.getCryptoLogos(symbols.toList())
         }
     }
 
     override suspend fun getQuotesLatest(id: Int, convert: String): Resource<Map<String, CryptoQuotesResDTO>> {
         try {
             val response = client.get(CryptoDataEndpoints.QUOTES_LATEST_ENDPOINT) {
-                url.parameters.appendAll(mapOf(KEY_ID to id.toString(), KEY_CONVERT to convert))
+                url.parameters.appendAll(mapOf(KEY_SYMBOL to id.toString(), KEY_CONVERT to convert))
             }.body<CryptoFilterResDTO<CryptoQuotesResDTO>>()
 
             return response.getResource()

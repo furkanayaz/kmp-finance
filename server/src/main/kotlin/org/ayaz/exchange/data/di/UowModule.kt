@@ -4,6 +4,7 @@ import com.mongodb.client.MongoCollection
 import io.ktor.client.HttpClient
 import org.ayaz.exchange.data.entities.spx.SPXEntity
 import org.ayaz.exchange.data.entities.user.UserEntity
+import org.ayaz.exchange.data.repositories.logo.IExchangeLogoRepo
 import org.ayaz.exchange.data.uow_s.auth.ILoginUow
 import org.ayaz.exchange.data.uow_s.auth.ISignUpUow
 import org.ayaz.exchange.data.uow_s.auth.LoginUow
@@ -60,6 +61,6 @@ class UowModule {
     fun bindSpxDataUow(@SpxCollection collection: MongoCollection<SPXEntity>) = SpxDataUow(collection)
 
     @Single([ICryptoDataUow::class])
-    fun bindCryptoDataUow(@CoinMarketCap client: HttpClient) = CryptoDataUow(client)
+    fun bindCryptoDataUow(@CoinMarketCap client: HttpClient, logoRepo: IExchangeLogoRepo) = CryptoDataUow(client, logoRepo)
 
 }
